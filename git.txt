@@ -1,0 +1,199 @@
+1.clone
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal (main)
+$ git clone https://github.com/kunaldhopavkar/kunal.git
+Cloning into 'kunal'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+
+2.pull
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal (main)
+$ mkdir pull
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal (main)
+$ cd pull
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/pull (main)
+$ pwd
+/c/git repo/kunal/kunal/pull
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/pull (main)
+$ git init
+Initialized empty Git repository in C:/git repo/kunal/kunal/pull/.git/
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/pull (master)
+$ git pull https://github.com/kunaldhopavkar/kunal.git
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (6/6), 1.22 KiB | 12.00 KiB/s, done.
+From https://github.com/kunaldhopavkar/kunal
+ * branch            HEAD       -> FETCH_HEAD
+
+3.push
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/pull (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   alpha
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/pull (master)
+$ git add .
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/pull (master)
+$ git commit -m "changes made"
+[master c304250] changes made
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/pull (master)
+$ git remote add origin https://github.com/kunaldhopavkar/kunal.git
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/pull (master)
+$ git remote -v
+origin  https://github.com/kunaldhopavkar/kunal.git (fetch)
+origin  https://github.com/kunaldhopavkar/kunal.git (push)
+
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/pull (master)
+$ git push -u origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 292 bytes | 22.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/kunaldhopavkar/kunal/pull/new/master
+remote:
+To https://github.com/kunaldhopavkar/kunal.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+4.branch
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/pull (master)
+$ git branch
+* master
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/pull (master)
+$ git branch new
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/pull (master)
+$ git branch
+* master
+  new
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/pull (master)
+$ git checkout new
+Switched to branch 'new'
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/pull (new)
+$ git branch
+  master
+* new
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/pull (new)
+$ git add alpha
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/pull (master)
+$ git merge new
+Updating c304250..e005297
+Fast-forward
+ php.txt | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+ create mode 100644 php.txt
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/pull (master)
+$ git branch -d test
+Deleted branch test (was e005297).
+
+5.fetch
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/kunal (main)
+$ git fetch origin
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 6 (delta 0), reused 3 (delta 0), pack-reused 0
+Unpacking objects: 100% (6/6), 920 bytes | 8.00 KiB/s, done.
+From https://github.com/kunaldhopavkar/kunal
+   8f42490..f1e9e70  main       -> origin/main
+ * [new branch]      master     -> origin/master
+
+
+6.stash
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/kunal (main)
+$ git status
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   html.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/kunal (main)
+$ git stash save first
+Saved working directory and index state On main: first
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/kunal (main)
+$ git stash list
+stash@{0}: On main: first
+stash@{1}: WIP on main: 7e0f447 save
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/kunal (main)
+$ git stash pop
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   html.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (435b644222438d70253621e9b34e9a0282413814)
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/kunal (main)
+$ git stash list
+stash@{0}: On main: first
+stash@{1}: WIP on main: 7e0f447 save
+
+
+Priyanka@ADMIN MINGW64 /c/git repo/kunal/kunal/kunal (main)
+$ git stash apply stash@{0}
+error: Your local changes to the following files would be overwritten by merge:
+        html.txt
+Please commit your changes or stash them before you merge.
+Aborting
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 1 and 1 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   html.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+
+
+
+
+
+
+
